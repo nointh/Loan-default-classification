@@ -1,0 +1,239 @@
+<head>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+</head>
+<style>
+    form{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    label, input, select{
+        padding: 5px;
+        margin-bottom: 15px;
+    }
+</style>
+<html>
+    <h1 style="text-align: center; margin: 10px">Loan default</h1>
+    <form action="/predict" method="post" class="row mx-auto w-75">
+        <div class="row">
+            <div class="col-3 input-group">
+                <label class='input-group-text' for="id">Loan amount</label>
+                <input class="form-control" type="number" name="loan_amnt" step="0.01"  value="0">
+            </div>
+
+            <div class="input-group col-3">
+                <label class='input-group-text' for="">Interest rate</label>
+                <input class="form-control" type="number" name="int_rate" id="" step="0.01" value="0">
+            </div>
+            <div class="input-group ">
+                <label class='input-group-text' for="">Installment</label>
+                <input class='form-control' type="number" name="installment" id="" step="0.01" value="0">
+            </div>
+
+            <div class="input-group ">
+                <label class='input-group-text'  for="">Annual income</label>
+                <input class='form-control' type="number" name="annual_inc" id="" step="0.01" value="0">
+            </div>
+
+            <div class="input-group ">
+                <label class='input-group-text'  for="">Debt-to-income ratio</label>
+                <input class="form-control" type="number" name="dti" id="" step="0.01" value="0">
+            </div>
+
+            <div class="input-group ">
+                <label class='input-group-text'  for="">The number of open credit lines in the borrower's credit file</label>
+                <input class='form-control' type="number" name="open_acc" id="" value="0">
+            </div>
+
+            <div class="input-group ">
+                <label class='input-group-text'  for="">Number of derogatory public records</label>
+                <input class='form-control' type="number" name="pub_rec" id="" value="0">
+            </div>
+
+            <div class="input-group ">
+                <label class='input-group-text'  for="">Total credit revolving balance</label>
+                <input class='form-control' type="number" name="revol_bal" id="" step="0.01" value="0">
+            </div>
+
+            <div class="input-group ">
+                <label class='input-group-text'  for="">The amount of credit the borrower is using relative to all available revolving credit</label>
+                <input class='form-control' type="number" name="revol_util" id="" step="0.01" value="0">
+            </div>
+
+            <div class="input-group ">
+                <label class='input-group-text'  for="">The total number of credit lines currently in the borrower's credit file</label>
+                <input class='form-control' type="number" name="total_acc" id="" value="0">
+            </div>
+
+            <div class="input-group ">
+                <label class='input-group-text'  for="">Number of public record bankruptcies</label>
+                <select class="form-select" name="pub_rec_bankruptcies" id="">
+                    <option value="11">Yes</option>
+                    <option value="-1">No</option>
+                </select>
+            </div>
+
+            <div class="input-group ">
+                <label class='input-group-text'  for="">Sub grade</label>
+                <select class="form-select" name="sub_grade" id="">
+                    <option value="-1">A1</option>
+                    <option value="13">A2</option>
+                    <option value="14">A3</option>
+                    <option value="15">A4</option>
+                    <option value="16">A5</option>
+                    <option value="17">B1</option>
+                    <option value="18">B2</option>
+                    <option value="19">B3</option>
+                    <option value="20">B4</option>
+                    <option value="21">B5</option>
+                    <option value="22">C1</option>
+                    <option value="23">C2</option>
+                    <option value="24">C3</option>
+                    <option value="25">C4</option>
+                    <option value="26">C5</option>
+                    <option value="27">D1</option>
+                    <option value="28">D2</option>
+                    <option value="29">D3</option>
+                    <option value="30">D4</option>
+                    <option value="31">D5</option>
+                    <option value="32">E1</option>
+                    <option value="33">E2</option>
+                    <option value="34">E3</option>
+                    <option value="35">E4</option>
+                    <option value="36">E5</option>
+                    <option value="37">G1</option>
+                    <option value="38">G2</option>
+                    <option value="39">G3</option>
+                    <option value="40">G4</option>
+                    <option value="41">G5</option>
+                    <option value="42">F1</option>
+                    <option value="43">F2</option>
+                    <option value="44">F3</option>
+                    <option value="45">F4</option>
+                    <option value="46">F5</option>
+                </select>
+            </div>
+
+            <div class="input-group ">
+                <label class='input-group-text'  for="">Term</label>
+                <select class="form-select" name="term" id="">
+                    <option value="-1">36 months</option>
+                    <option value="12">60 months</option>
+                </select>
+            </div>
+
+            <div class="input-group ">
+                <label class='input-group-text'  for="">Home Ownership</label>
+                <select class="form-select" name="home_ownership" id="">
+                    <option value="-1">ANY</option>
+                    <option value="47">MORTGAGE</option>
+                    <option value="48">NONE</option>
+                    <option value="49">OTHER</option>
+                    <option value="50">OWN</option>
+                    <option value="51">RENT</option>
+        
+                </select>
+            </div>
+
+            <div class="input-group ">
+                <label class='input-group-text'  for="">Verification Status</label>
+                <select class="form-select" name="verification_status" id="">
+                    <option value="-1">Not Verified</option>
+                    <option value="52">Source Verified</option>
+                    <option value="53">Verified</option>
+        
+                </select>
+            </div>
+
+            <div class="input-group ">
+                <label class='input-group-text'  for="">Loan Purpose</label>
+                <select class='form-select' name="purpose" id="">
+                    <option value="-1">car</option>
+                    <option value="54">credit_card</option>
+                    <option value="55">debt_consolidation</option>
+                    <option value="56">educational</option>
+                    <option value="57">home_improvement</option>
+                    <option value="58">house</option>
+                    <option value="59">major_purchase</option>
+                    <option value="60">medical</option>
+                    <option value="61">moving</option>
+                    <option value="62">renewable_energy</option>
+                    <option value="63">small_business</option>
+                    <option value="64">vacation</option>
+                    <option value="65">wedding</option>
+                </select>
+            </div>
+
+            <div class="input-group ">
+                <label class='input-group-text'  for="">The initial listing status of the loan</label>
+                <select class="form-select" name="initial_list_status" id="">
+                    <option value="-1">f</option>
+                    <option value="66">w</option>
+                </select>
+            </div>
+
+            <div class="input-group ">
+                <label class='input-group-text'  for="">Application Type</label>
+                <select class="form-select" name="application_type" id="">
+                    <option value="-1">DIRECT_PAY</option>
+                    <option value="67">INDIVIDUAL</option>
+                    <option value="68">JOINT</option>
+                </select>
+            </div>
+
+            <div class="input-group ">
+                <label class='input-group-text'  for="">Number of mortgage accounts</label>
+                <select class="form-select" name="mort_acc_amnt" id="">
+                    <option value="-1">0</option>
+                    <option value="69">1-6</option>
+                    <option value="70">7-14</option>
+                    <option value="71">more-15</option>
+                    <option value="72">unknown</option>
+                </select>
+            </div>
+
+            <div class="input-group ">
+                <label class='input-group-text'  for="">Zip code</label>
+                <select class="form-select" class="" name="zip_code" id="">
+                    <option value="-1">OTHER</option>
+                    <option value="73">05113</option>
+                    <option value="74">11650</option>
+                    <option value="75">22690</option>
+                    <option value="76">29597</option>
+                    <option value="77">30723</option>
+                    <option value="78">48052</option>
+                    <option value="79">70466</option>
+                    <option value="80">86630</option>
+                    <option value="81">93700</option>
+                </select>
+            </div>
+        </div>
+        <input class="btn btn-primary" type="submit" value="Send">
+    </form>
+</html>
+<!-- 
+['loan_amnt', 'int_rate', 'installment', 'annual_inc', 'loan_status',
+       'dti', 'open_acc', 'pub_rec', 'revol_bal', 'revol_util', 'total_acc',
+       'pub_rec_bankruptcies', 'term_ 60 months', 'sub_grade_A2',
+       'sub_grade_A3', 'sub_grade_A4', 'sub_grade_A5', 'sub_grade_B1',
+       'sub_grade_B2', 'sub_grade_B3', 'sub_grade_B4', 'sub_grade_B5',
+       'sub_grade_C1', 'sub_grade_C2', 'sub_grade_C3', 'sub_grade_C4',
+       'sub_grade_C5', 'sub_grade_D1', 'sub_grade_D2', 'sub_grade_D3',
+       'sub_grade_D4', 'sub_grade_D5', 'sub_grade_E1', 'sub_grade_E2',
+       'sub_grade_E3', 'sub_grade_E4', 'sub_grade_E5', 'sub_grade_F1',
+       'sub_grade_F2', 'sub_grade_F3', 'sub_grade_F4', 'sub_grade_F5',
+       'sub_grade_G1', 'sub_grade_G2', 'sub_grade_G3', 'sub_grade_G4',
+       'sub_grade_G5', 'home_ownership_MORTGAGE', 'home_ownership_NONE',
+       'home_ownership_OTHER', 'home_ownership_OWN', 'home_ownership_RENT',
+       'verification_status_Source Verified', 'verification_status_Verified',
+       'purpose_credit_card', 'purpose_debt_consolidation',
+       'purpose_educational', 'purpose_home_improvement', 'purpose_house',
+       'purpose_major_purchase', 'purpose_medical', 'purpose_moving',
+       'purpose_other', 'purpose_renewable_energy', 'purpose_small_business',
+       'purpose_vacation', 'purpose_wedding', 'initial_list_status_w',
+       'application_type_INDIVIDUAL', 'application_type_JOINT',
+       'mort_acc_amnt_1-6', 'mort_acc_amnt_7-14', 'mort_acc_amnt_more-15',
+       'mort_acc_amnt_unknown', 'zip_code_05113', 'zip_code_11650',
+       'zip_code_22690', 'zip_code_29597', 'zip_code_30723', 'zip_code_48052',
+       'zip_code_70466', 'zip_code_86630', 'zip_code_93700'] -->
